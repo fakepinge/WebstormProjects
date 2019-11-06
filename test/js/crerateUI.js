@@ -4,7 +4,7 @@ function createLeftButton(str) {
 
     let image = document.createElement("img")
     image.className = "selectImg"
-    image.src = "./image/RZHouseSelected.png"
+    image.src = "../image/RZHouseSelected.png"
 
     let title = document.createElement("div")
     title.className = "selectTitle"
@@ -32,7 +32,7 @@ function createToolRightButton(title) {
     conDiv.style.justifyContent = "flex-start"
 
     let imgDiv = document.createElement("img")
-    imgDiv.src = "./image/RZHouseSelected.png"
+    imgDiv.src = "../image/RZHouseSelected.png"
     imgDiv.style.marginLeft = "5px"
     imgDiv.style.width = "20px"
     imgDiv.style.height = "20px"
@@ -62,7 +62,7 @@ function createFitterDiv() {
     fitterConDiv.style.justifyContent = "flex-start"
 
     let fImgDiv = document.createElement("img")
-    fImgDiv.src = "./image/RZHouseSelected.png"
+    fImgDiv.src = "../image/RZHouseSelected.png"
     fImgDiv.style.marginLeft = "5px"
     fImgDiv.style.width = "20px"
     fImgDiv.style.height = "20px"
