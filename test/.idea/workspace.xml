@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e26f7a1-3a31-4756-bad4-0989fdf59ad4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/css/demo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/代码/CSS学习/CSS的三种样式/CSS的外部样式.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/代码/CSS学习/CSS的三种样式/CSS的行内样式.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/代码/CSS学习/CSS的三种样式/CSS的页内样式.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/代码/CSS学习/CSS的选择器/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/代码/CSS学习/CSS的选择器/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/h5新增标签.html" beforeDir="false" afterPath="$PROJECT_DIR$/代码/标签学习/h5新增标签.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/作业/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html-常用标签学习.html" beforeDir="false" afterPath="$PROJECT_DIR$/代码/标签学习/html-常用标签学习.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/crerateUI.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/crerateUI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/新闻详情页.html" beforeDir="false" afterPath="$PROJECT_DIR$/代码/标签学习/新闻详情页.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/代码/CSS学习/css/demo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/代码/CSS学习/CSS的三种样式/CSS的外部样式.html" beforeDir="false" afterPath="$PROJECT_DIR$/代码/CSS学习/CSS的三种样式/CSS的外部样式.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/作业/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="93">
-              <caret line="246" column="13" lean-forward="true" selection-start-line="246" selection-start-column="13" selection-end-line="246" selection-end-column="13" />
+            <state relative-caret-position="4049">
+              <caret line="261" column="5" lean-forward="true" selection-start-line="261" selection-start-column="5" selection-end-line="261" selection-end-column="5" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -40,19 +35,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/crerateUI.js">
+        <entry file="file://$PROJECT_DIR$/代码/CSS学习/CSS的选择器/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
+            <state relative-caret-position="251">
+              <caret line="39" column="21" lean-forward="true" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/代码/CSS学习/CSS的选择器/demo.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="562">
+              <caret line="34" column="12" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/demo.css">
+        <entry file="file://$PROJECT_DIR$/代码/CSS学习/CSS的三种样式/CSS的页内样式.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
+            <state relative-caret-position="352">
+              <caret line="22" selection-start-line="22" selection-end-line="33" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -62,8 +66,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -92,6 +96,9 @@
         <option value="$PROJECT_DIR$/CSS学习/CSS的三种样式/CSS的外部样式.html" />
         <option value="$PROJECT_DIR$/代码/CSS学习/CSS的三种样式/CSS的外部样式.html" />
         <option value="$PROJECT_DIR$/js/crerateUI.js" />
+        <option value="$PROJECT_DIR$/作业/home.html" />
+        <option value="$PROJECT_DIR$/代码/CSS学习/CSS的选择器/index.html" />
+        <option value="$PROJECT_DIR$/代码/CSS学习/CSS的选择器/demo.html" />
       </list>
     </option>
   </component>
@@ -125,6 +132,11 @@
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="image" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -143,7 +155,21 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="代码" type="462c0819:PsiDirectoryNode" />
               <item name="CSS学习" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="代码" type="462c0819:PsiDirectoryNode" />
+              <item name="CSS学习" type="462c0819:PsiDirectoryNode" />
               <item name="CSS的三种样式" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="代码" type="462c0819:PsiDirectoryNode" />
+              <item name="CSS学习" type="462c0819:PsiDirectoryNode" />
+              <item name="CSS的选择器" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="test" type="b2602c69:ProjectViewProjectNode" />
@@ -169,11 +195,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/代码/CSS学习/css" />
       <recent name="$PROJECT_DIR$/作业" />
       <recent name="$PROJECT_DIR$/代码/标签学习" />
       <recent name="$PROJECT_DIR$/代码" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/CSS学习" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -206,7 +232,7 @@
       <workItem from="1572264199090" duration="4509000" />
       <workItem from="1572348140309" duration="3664000" />
       <workItem from="1572514687379" duration="2289000" />
-      <workItem from="1573006225432" duration="10231000" />
+      <workItem from="1573006225432" duration="13268000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <created>1573019732185</created>
@@ -226,7 +252,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37776000" />
+    <option name="totallyTimeSpent" value="40813000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -239,7 +265,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="35" width="1172" height="1328" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22936577" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -318,17 +343,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/demo.css">
+    <entry file="file://$PROJECT_DIR$/代码/CSS学习/css/demo.css">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="4" lean-forward="true" selection-start-column="4" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/代码/CSS学习/CSS的三种样式/CSS的外部样式.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" column="48" lean-forward="true" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -343,30 +361,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/代码/CSS学习/CSS的三种样式/CSS的页内样式.html">
+    <entry file="file://$PROJECT_DIR$/js/crerateUI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="22" selection-start-line="22" selection-end-line="33" selection-end-column="17" />
+        <state relative-caret-position="162">
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/crerateUI.js">
+    <entry file="file://$PROJECT_DIR$/代码/CSS学习/CSS的三种样式/CSS的外部样式.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
+        <state relative-caret-position="297">
+          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/作业/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="246" column="13" lean-forward="true" selection-start-line="246" selection-start-column="13" selection-end-line="246" selection-end-column="13" />
+        <state relative-caret-position="4049">
+          <caret line="261" column="5" lean-forward="true" selection-start-line="261" selection-start-column="5" selection-end-line="261" selection-end-column="5" />
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/代码/CSS学习/CSS的三种样式/CSS的页内样式.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="22" selection-start-line="22" selection-end-line="33" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/代码/CSS学习/CSS的选择器/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="39" column="21" lean-forward="true" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/代码/CSS学习/CSS的选择器/demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="34" column="12" lean-forward="true" selection-start-line="34" selection-start-column="12" selection-end-line="34" selection-end-column="12" />
         </state>
       </provider>
     </entry>

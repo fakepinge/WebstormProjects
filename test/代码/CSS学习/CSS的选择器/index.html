@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS常见的选择器</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        /*标签选择器*/
+        div {
+            color: red;
+            font-size: 30px;
+        }
+        p {
+            color: blue;
+        }
+        /*类选择器*/
+        .test1 {
+            color: green;
+        }
+        /*id选择器*/
+        #div1 {
+            font-size: 50px;
+        }
+        #div2 {
+            font-size: 70px;
+        }
+        /*并列选择器*/
+        .main1, #p1 {
+            border: 4px solid yellow;
+        }
+        /*复合选择器*/
+        div.main1 {
+            background-color: lightgray;
+        }
+        /*伪类*/
+        input:focus {
+            /*去除外线条*/
+            outline: none;
+            width: 500px;
+            height: 50px;
+            font-size: 20px;
+        }
+        .main2:hover {
+            width: 500px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="div1">我是div标签</div>
+    <div id="div2">我是div标签</div>
+    <div>我是div标签</div>
+    <div class="test1">我是div标签</div>
+    <div>我是div标签</div>
+    <div class="main1">我是div标签</div>
+    <div>我是div标签</div>
+    <p>我是段落标签</p>
+    <p>我是段落标签</p>
+    <p class="test1">我是段落标签</p>
+    <p>我是段落标签</p>
+    <p class="main1">我是段落标签</p>
+    <p>我是段落标签</p>
+    <p id="p1">我是段落标签</p>
+    <div class="main2">我是div标签</div>
+    <hr>
+    <input placeholder="我是输入框">
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器的优先级别</title>
+    <style>
+        /*
+        css样式遵循的规律
+        1.相同的类型选择器遵循：a.就近原则 b.叠加原则
+        2.id选择器 > 类选择器 > 标签选择器
+        */
+        /*
+        通配符
+        1.优先级别非常低
+        2.性能比较差
+        */
+        *{
+          font-size: 30px;
+        }
+        div {
+            color: red;
+        }
+        .test1 {
+            color: blue;
+        }
+        .test2 {
+            color: yellow;
+        }
+        #main1 {
+            color: #ff706b;
+        }
+        div#main1 {
+            color: #900cff;
+        }
+    </style>
+</head>
+<body>
+<div id="main1" class="test1 test2">我是用来测试优先级别的1</div>
+<!--<div>我是用来测试优先级别的2</div>-->
+<!--<div>我是用来测试优先级别的3</div>-->
+
+</body>
+</html>
