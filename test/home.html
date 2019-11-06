@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>房源列表</title>
+    <script src="js/crerateUI.js"></script>
+    <style type="text/css"> body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .fitterDiv {
+        background-color: #3396fb;
+        border: 1px solid black;
+        height: 45px;
+        display: flex;
+        flex-direction: row;
+    }
+    .fitterDiv .itemDiv {
+        display: flex;
+        border-right: 1px solid black;
+        height: 100%;
+        flex-direction: row;
+        width: 150px;
+        align-items: center;
+        justify-content: center;
+    }
+
+     .rightContentDiv {
+        display: flex;
+        height: 100%;
+        flex-direction: row;
+        flex: 1;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .fitterDiv .rightDiv {
+        display: inline-flex;
+        border: 1px solid black;
+        height: 70%;
+        width: 75px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        color: white;
+    }
+
+
+    .toolDiv {
+        display: flex;
+        background-color: #f6f6f6;
+        border-bottom: 1px solid black;
+        box-shadow: 0px 5px 5px rgba(51, 51, 51, 0.2);
+        height: 40px;
+        flex-direction: row;
+    }
+    .toolDiv .caseDiv {
+        display: flex;
+        background-color: white;
+        border-top: 1px solid rgba(153, 153, 153, 0.8);
+        border-left: 1px solid rgba(153, 153, 153, 0.8);
+        border-right: 1px solid rgba(153, 153, 153, 0.8);
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        height: 30px;
+        width: 60px;
+        margin-top: 10px;
+        align-items: center;
+        justify-content: center;
+    }
+    .toolDiv .leftDiv {
+        display: flex;
+        height: 100%;
+        width: 100px;
+        align-items: center;
+        justify-content: left;
+    }
+    .toolDiv .leftDiv .selectImg {
+        display: flex;
+        margin-left: 5px;
+        width: 20px;
+        height: 20px;
+    }
+    .toolDiv .leftDiv .selectTitle {
+        display: flex;
+        margin-left: 5px;
+    }
+
+    .contentDiv .contentCellDiv {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: red;
+        height: 150px;
+    }
+    </style>
+</head>
+<body>
+<div id="fitter" class="fitterDiv">
+</div>
+<div id="tool" class="toolDiv">
+    <div id="saleDiv" class="caseDiv" style="margin-left: 10px">
+        出售
+    </div>
+    <div id="leaseDiv" class="caseDiv" style="margin-left: 5px">
+        出租
+    </div>
+</div>
+<div id="content" class="contentDiv" style="display: flex; flex-direction: column">
+
+
+
+</div>
+
+<button id="ajaxButton" type="button" style="background-color: red; width: 150px; height: 50px">Make a request</button>
+
+<script>
+    <!--document.cookie="b-cookie=b;domain=.b.com;path=/;SameSite=lax"-->
+    <!--document.cookie="b-cookie1=b1;domain=.b.com;path=/"-->
+
+    window.onload = function () {
+        loadFitter()
+        loadTools()
+        loadContent()
+        getData()
+    }
+
+    function loadFitter() {
+        let fitter = document.getElementById("fitter")
+        let titleArr = ["全公司", "员工", "区域", "楼盘", "户型", "面积", "总价", "时间"]
+        for (let index in  titleArr) {
+            let div = document.createElement("div")
+            div.className = "itemDiv"
+            div.innerText = titleArr[index];
+            fitter.appendChild(div)
+        }
+        let rightContentdiv = document.createElement("div")
+        rightContentdiv.className = "rightContentDiv"
+        fitter.appendChild(rightContentdiv)
+        let rightArr = ["查询", "更多"]
+        for (let index in  rightArr) {
+            let div = document.createElement("div")
+            div.className = "rightDiv"
+            div.innerText = rightArr[index]
+            rightContentdiv.appendChild(div)
+        }
+    }
+
+    function loadTools() {
+        let tool = document.getElementById("tool")
+        // 左边
+        let titleArr = ["合作房源", "今日抢盘", "我的收藏"]
+        for (let index in  titleArr) {
+            let div = createLeftButton(titleArr[index])
+            tool.appendChild(div)
+            if (index == 0)  {
+                div.style.marginLeft = "35px"
+            }
+        }
+
+        // 右边父视图
+        let rightContentdiv = document.createElement("div")
+        rightContentdiv.className = "rightContentDiv"
+        rightContentdiv.style.backgroundColor = "white"
+        tool.appendChild(rightContentdiv)
+
+        // 登记
+        let regDiv = createToolRightButton('登记')
+        regDiv.style.marginRight = "15px"
+        rightContentdiv.appendChild(regDiv)
+
+        // 跟进日志
+        let trackDiv = createToolRightButton('跟进日志')
+        trackDiv.style.marginRight = "20px"
+        rightContentdiv.appendChild(trackDiv)
+
+        // 筛选范围
+        let fitterDiv = createFitterDiv()
+        rightContentdiv.appendChild(fitterDiv)
+
+        // 排序
+        let sortConDiv = createToolRightButton('排序')
+        sortConDiv.style.marginRight = "20px"
+        rightContentdiv.appendChild(sortConDiv)
+
+        // 条数
+        let numDiv = document.createElement("div")
+        numDiv.id = 'numId'
+        numDiv.style.width = "50px"
+        numDiv.style.height = "100%"
+        numDiv.style.marginRight = "30px"
+        numDiv.innerHTML = "共13条"
+        numDiv.style.color = "gray"
+        numDiv.style.display = "flex"
+        numDiv.style.alignItems = "center"
+        numDiv.style.justifyContent = "center"
+        rightContentdiv.appendChild(numDiv)
+
+        // 右边第二个
+        let rightDiv2 = createRightItem("1px", "gray")
+        rightContentdiv.appendChild(rightDiv2)
+        // 右边第一个
+        let rightDiv1 = createRightItem("10px", "blue")
+        rightContentdiv.appendChild(rightDiv1)
+    }
+
+    function loadContent() {
+        let contentDiv = document.getElementById('content')
+
+        contentDiv.appendChild(createContentCellDiv())
+
+    }
+
+
+
+
+
+    function getData() {
+        document.getElementById("ajaxButton").addEventListener('click', makeRequest)
+
+        var httpRequest
+        function makeRequest() {
+            httpRequest = new XMLHttpRequest()
+            if (!httpRequest) {
+                alert('Giving up :( Cannot create an XMLHTTP instance')
+                return
+            }
+            httpRequest.onreadystatechange = alertContents
+
+            var formData = new FormData()
+            formData.append('testValue', '14411114444')
+            httpRequest.open('POST', 'http://test.haofang.net/mobile_h5test_study?testValue=10', true)
+            httpRequest.send(formData)
+        }
+
+        function alertContents() {
+            if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                if (httpRequest.status === 200) {
+                    let map = jsonToMap(httpRequest.responseText)
+                    let ajaxButton = document.getElementById("ajaxButton")
+                    ajaxButton.innerHTML = map.get('testDesc')
+                } else {
+                    alert('There was a problem with the request.')
+                }
+            }
+        }
+
+        function objToStrMap(obj) {
+            let strMap = new Map();
+            for (let k of Object.keys(obj)) {
+                strMap.set(k,obj[k]);
+            }
+            return strMap;
+        }
+
+        function jsonToMap(jsonStr){
+            return objToStrMap(JSON.parse(jsonStr));
+        }
+
+    }
+
+</script>
+</body>
+</html>
