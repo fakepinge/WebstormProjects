@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="wrapper">
+<!-- v-bind -->
+<!-- v-model -->
+<!-- v-on -->
+<!-- v-show -->
+<!-- v-if -->
+<!-- v-for -->
+<input type="text" v-model="txt"/>
+<div @click="click()">
+点击
+<label @click.stop="click1()">点击2</label>
+</div>
+<div v-show="show">测试所产生的设计的</div>
+<div v-for="(item,index) in list">测试第{{item}}</div>
+</div>
+<script>
+var dom=new Vue({
+	el:'#wrapper',
+	data:{
+		aa:222,
+		bb:333,
+		src:'http://pic27.nipic.com/20130313/9252150_092049419327_2.jpg',
+		txt:'ssss',
+		show:false,
+		list:[1,2,1,4]
+	},
+	computed:{
+		dd:function (){
+			return this.aa+this.bb
+		}
+	},
+	created(){
+		this.calc(11);
+	},
+	mounted(){
+		this.$nextTick(()=>{
+			
+		})
+	},
+	methods:{
+		calc:function(cc){
+			return this.aa+this.bb+cc;
+		},
+		click:function(){
+			alert('点击')
+		},
+		click1:function(){
+			alert('点击q')
+		}
+	}
+})
+setTimeout(()=>{
+	dom.aa=555;
+},3000)
+</script>
+</body>
+</html>
