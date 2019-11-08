@@ -52,7 +52,7 @@
     <!--筛选-->
     <div id="screen" class="rowStartStyle screenContent">
         <div id="screenLeft" class="rowStartStyle">
-            <screenleftitem v-for="(item,index) in screenList" :title="item" :type="index"></screenleftitem>
+            <screenitemdiv v-for="(item,index) in screenList" :title="item" :type="index"></screenitemdiv>
         </div>
         <div id="screenRight" class="rowStartStyle screenRightContent">
             <div @click="moreClick()" class="screenMore">更多</div>
@@ -71,7 +71,7 @@
     var screen_item_cpt = Vue.extend({
         props: ['title', 'type'],
         template: '' +
-            '<div class="screenItem" @click="screenItemClick(type)">' +
+            '<div class="screenItem" @click="screenItemClick(type+1, title)">' +
                 '<img src="../image/公司.png" style="width: 15px; height: 15px; margin-left: 5px">' +
                 '<span style="font-size: 13px; margin-left: 5px">{{title}}</span>' +
                 '<div style="display: flex; flex-direction: row; align-items: center; justify-content: flex-end; flex: 1;">' +
@@ -81,15 +81,15 @@
                 '</div>' +
             '</div>',
         methods:{
-            screenItemClick:function (type) {
-                alert(type.toString())
+            screenItemClick:function (type, title) {
+                alert("点击了第"+ type.toString() + "项 => " + title)
             },
         }
     })
     var screenVue = new Vue({
         el:"#screen",
         components:{
-            'screenleftitem': screen_item_cpt
+            'screenitemdiv': screen_item_cpt
         },
         data:{
             screenList:["全公司", "员工", "区域", "楼盘", "户型", "面积", "总价", "时间"]
