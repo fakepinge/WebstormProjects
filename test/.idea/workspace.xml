@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7e26f7a1-3a31-4756-bad4-0989fdf59ad4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/houseList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/作业/vue.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/作业/HouseList.html" beforeDir="false" afterPath="$PROJECT_DIR$/作业/HouseList.html" afterDir="false" />
-    </list>
+    <list default="true" id="7e26f7a1-3a31-4756-bad4-0989fdf59ad4" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -63,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/作业/HouseList.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="80" column="20" lean-forward="true" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+            <state relative-caret-position="969">
+              <caret line="86" column="17" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -248,7 +243,7 @@
       <workItem from="1572514687379" duration="2289000" />
       <workItem from="1573006225432" duration="13268000" />
       <workItem from="1573122121279" duration="657000" />
-      <workItem from="1573127044382" duration="10672000" />
+      <workItem from="1573127044382" duration="11046000" />
     </task>
     <task id="LOCAL-00001" summary="测试">
       <created>1573019732185</created>
@@ -268,7 +263,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52142000" />
+    <option name="totallyTimeSpent" value="52516000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -281,9 +276,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="724" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19698173" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19698173" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -295,7 +289,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32928804" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32928804" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.13449366" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.26740506" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32928804" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -452,8 +446,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/作业/HouseList.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="80" column="20" lean-forward="true" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+        <state relative-caret-position="969">
+          <caret line="86" column="17" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
