@@ -14,9 +14,6 @@
             background-color: rgb(47,158,240);
             height: 35px;
         }
-        .screenLeftContentDiv {
-            height: 100%;
-        }
         .rightContentDiv {
             flex: 1;
             height: 100%;
@@ -107,7 +104,7 @@
 <div id="view" style="background-color: white">
     <!--筛选-->
     <div id="screen" class="rowLeftMiddleStyle screenContentDiv">
-        <div id="screenLeft" class="rowLeftMiddleStyle screenLeftContentDiv">
+        <div id="screenLeft" class="rowLeftMiddleStyle" style="height: 100%">
             <screenitemdiv v-for="(item,index) in screenList" :title="item" :type="index"></screenitemdiv>
         </div>
         <div id="screenRight" class="rowRightMiddleStyle rightContentDiv">
