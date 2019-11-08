@@ -31,6 +31,7 @@
             justify-content: flex-start;
             height: 100%;
             width: 90px;
+            cursor: pointer;
         }
         .screenMore {
             color: white;
@@ -43,8 +44,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 10px
+            margin-right: 10px;
+            cursor: pointer;
         }
+
         .rowStartStyle.headerContent {
             background-color: rgb(244,244,244);
             height: 35px;
@@ -69,9 +72,11 @@
             width: 60px;
             margin-bottom: -1px;
             font-size: 15px;
+            cursor: pointer;
         }
         .rowCenterStyle.checkItem {
             margin-right: 10px;
+            cursor: pointer;
         }
         .headerRowButton {
             margin-right: 20px;
@@ -86,6 +91,7 @@
         .headerSwitchImg {
             width: 17px;
             height: 17px;
+            cursor: pointer;
         }
         .columnCenterStyle {
             display: flex;
@@ -188,7 +194,7 @@
     var row_text_button = Vue.extend({
         props: ['img', 'title', 'color', 'marginLeft'],
         template:'' +
-            '<div class="rowStartStyle">' +
+            '<div class="rowStartStyle" style="cursor: pointer">' +
             '<img :src="img">' +
             '<span :style="{color:color, marginLeft:\'3px\', fontSize:\'12px\'}">{{title}}</span>' +
             '</div>',
@@ -271,7 +277,7 @@
     var list_item_base_div_cmp = Vue.extend({
         props:['house'],
         template: '' +
-            '<div class="rowStartStyle baseInfoDiv" style="flex: 1">' +
+            '<div class="rowStartStyle" style="flex: 1">' +
                 '<div class="rowStartStyle">' +
                     '<img onerror=\'this.src="../image/global_image_placeholder_load.png"\' class="houseImage" :src="house.thumbUrl">' +
                 '</div>' +
