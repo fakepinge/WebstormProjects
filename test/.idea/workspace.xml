@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="7e26f7a1-3a31-4756-bad4-0989fdf59ad4" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="7e26f7a1-3a31-4756-bad4-0989fdf59ad4" name="Default Changelist" comment="">
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/js/houseList.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/作业/vue.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/作业/HouseList.html" beforeDir="false" afterPath="$PROJECT_DIR$/作业/HouseList.html" afterDir="false" />
+>>>>>>> 40243addb36c61347810b6e217854729e8f51e44
+    </list>
+>>>>>>> 504ba954b200ca73d89d427541b771afba094391
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -13,6 +26,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/作业/HouseList.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+=======
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/作业/es6demo.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -58,8 +78,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/作业/HouseList.html">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="969">
               <caret line="86" column="17" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
+=======
+            <state relative-caret-position="124">
+              <caret line="80" column="20" lean-forward="true" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+>>>>>>> 40243addb36c61347810b6e217854729e8f51e44
+>>>>>>> 504ba954b200ca73d89d427541b771afba094391
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -137,7 +163,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -189,6 +214,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -242,8 +268,17 @@
       <workItem from="1572348140309" duration="3664000" />
       <workItem from="1572514687379" duration="2289000" />
       <workItem from="1573006225432" duration="13268000" />
+<<<<<<< HEAD
+      <workItem from="1573122121279" duration="1270000" />
+      <workItem from="1573177004547" duration="632000" />
+=======
       <workItem from="1573122121279" duration="657000" />
+<<<<<<< HEAD
       <workItem from="1573127044382" duration="11046000" />
+=======
+      <workItem from="1573127044382" duration="10672000" />
+>>>>>>> 40243addb36c61347810b6e217854729e8f51e44
+>>>>>>> 504ba954b200ca73d89d427541b771afba094391
     </task>
     <task id="LOCAL-00001" summary="测试">
       <created>1573019732185</created>
@@ -263,7 +298,15 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="52516000" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="42715000" />
+=======
+    <option name="totallyTimeSpent" value="52142000" />
+>>>>>>> 40243addb36c61347810b6e217854729e8f51e44
+>>>>>>> 504ba954b200ca73d89d427541b771afba094391
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -275,9 +318,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
+<<<<<<< HEAD
+    <frame x="0" y="23" width="2560" height="1331" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10397794" />
+=======
     <frame x="0" y="23" width="1280" height="724" extended-state="6" />
     <layout>
+<<<<<<< HEAD
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19698173" />
+=======
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19698173" />
+>>>>>>> 40243addb36c61347810b6e217854729e8f51e44
+>>>>>>> 504ba954b200ca73d89d427541b771afba094391
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -289,7 +342,15 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32928804" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32928804" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.26740506" />
+=======
+<<<<<<< HEAD
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.15173528" />
+=======
+      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.13449366" />
+>>>>>>> 40243addb36c61347810b6e217854729e8f51e44
+>>>>>>> 504ba954b200ca73d89d427541b771afba094391
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32928804" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -372,6 +433,9 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/代码/CSS学习/CSS的三种样式/CSS的页内样式.html">
+=======
     <entry file="file://$PROJECT_DIR$/代码/CSS学习/CSS的选择器/demo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
@@ -410,6 +474,7 @@
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+>>>>>>> 40243addb36c61347810b6e217854729e8f51e44
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="11780" column="13" selection-start-line="11780" selection-start-column="13" selection-end-line="11780" selection-end-column="13" />
@@ -439,15 +504,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/作业/es6demo.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="243">
+          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/作业/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="653">
+          <caret line="109" column="6" selection-start-line="109" selection-start-column="6" selection-end-line="109" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+=======
         <state relative-caret-position="299">
           <caret line="21" column="33" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="33" />
+>>>>>>> 40243addb36c61347810b6e217854729e8f51e44
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/作业/HouseList.html">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="969">
           <caret line="86" column="17" selection-start-line="86" selection-start-column="17" selection-end-line="86" selection-end-column="17" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="459">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+=======
+        <state relative-caret-position="124">
+          <caret line="80" column="20" lean-forward="true" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="20" />
+>>>>>>> 40243addb36c61347810b6e217854729e8f51e44
+>>>>>>> 504ba954b200ca73d89d427541b771afba094391
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
