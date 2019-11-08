@@ -87,6 +87,44 @@
             width: 17px;
             height: 17px;
         }
+        .columnCenterStyle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .columnStartStyle {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .columnStartStyle.listItemDiv {
+            justify-content: start;
+            width: 100%;
+            height: 150px;
+            background-color: rgb(237,243,251);
+        }
+        .rowStartStyle.listItemContentDiv {
+            width: 100%;
+            height: 145px;
+            background-color: white;
+        }
+
+        .houseImage {
+            margin-left: 20px;
+            width: 140px;
+            height: 115px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        .rowCenterStyle.baseIconImg {
+            width: 20px;
+            height: 15px;
+            border: 1px solid rgb(153,153,153);
+            border-radius: 2px;
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
@@ -128,7 +166,21 @@
         </div>
     </div>
     <!--列表-->
-    <div id="listView">
+    <div id="listView" class="columnCenterStyle">
+        <div class="columnStartStyle listItemDiv" v-for="(house,index) in houseList">
+            <div class="rowStartStyle listItemContentDiv">
+                <list_item_base_div v-if="house" :house="house"></list_item_base_div>
+                <div class="rowStartStyle detailInfoDiv" style="width: 22%; height: 100%; background-color: #900cff">
+
+                </div>
+                <div class="rowStartStyle workflowInfoDiv" style="width: 22%; height: 100%; background-color: darkred">
+
+                </div>
+                <div class="rowStartStyle deptInfoDiv" style="width: 22%; height: 100%; background-color: aqua">
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -204,10 +256,98 @@
         }
     })
 
+    var score_text_label_cmp = Vue.extend({
+        props: ['qualityScore'],
+        template:'' +
+            '<div class="columnCenterStyle">' +
+                '<div class="rowCenterStyle">' +
+                    '<span style="color: rgb(251,125,89); font-size: 20px">{{qualityScore}}</span>' +
+                    '<span style="color: rgb(251,125,89); font-size: 12px">分</span>' +
+                '</div>' +
+                '<span style="color: rgb(153,153,153); font-size: 12px">房源质量</span>' +
+            '</div>',
+    })
+
+    var list_item_base_div_cmp = Vue.extend({
+        props:['house'],
+        template: '' +
+            '<div class="rowStartStyle baseInfoDiv" style="flex: 1">' +
+                '<div class="rowStartStyle">' +
+                    '<img onerror=\'this.src="../image/global_image_placeholder_load.png"\' class="houseImage" :src="house.thumbUrl">' +
+                '</div>' +
+                '<div class="rowStartStyle" style="flex: 1; align-items: flex-start">' +
+                    '<div class="columnStartStyle" style="height: 105px;margin-top: 20px; margin-left: 5px; justify-content: flex-start">' +
+                        '<span style="color:rgb(51,51,51); font-size: 18px;">{{house.saleSubject}}</span>' +
+                        '<div class="columnStartStyle" style="justify-content: flex-end; width: 100%; flex: 1">' +
+                            '<span style="color:rgb(153,153,153); font-size: 12px; margin-bottom: 5px">{{subSubject(house)}}</span>' +
+                            '<div class="rowStartStyle" style="height: 20px; width: 100%">' +
+                                '<div class="rowCenterStyle baseIconImg">' +
+                                    '<img src="../image/钥匙.png">' +
+                                '</div>' +
+                                '<div class="rowCenterStyle baseIconImg">' +
+                                    '<img src="../image/视频.png">' +
+                                '</div>' +
+                                '<div class="rowCenterStyle baseIconImg">' +
+                                    '<img src="../image/VR.png">' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="rowCenterStyle" style="width: 100px;">' +
+                    '<score_text_label :qualityScore="house.qualityScore"></score_text_label>' +
+                '</div>' +
+            '</div>',
+        components:{
+            'score_text_label': score_text_label_cmp,
+        },
+        methods:{
+            subSubject:function (house) {
+                return house.buildName + " " + house.regionName + " " + house.sectionName
+            }
+        },
+    })
+
     var listVue = new Vue({
         el:"#listView",
+        components:{
+            'list_item_base_div':list_item_base_div_cmp,
+        },
+        data:{
+            houseList:[
+            //     {
+            //     thumbUrl:"http://pic.myfun7.com/oss/online/tmp/2019/11/07/d68fe689210f4019a98f8e9e63069d44.png",
+            //     qualityScore:40,
+            //     saleSubject:"房子不错，采光好，通风好，对中庭",
+            //     buildName:"芳园居",
+            //     regionName: "双流",
+            //     sectionName: "航空港",
+            // }
+            ]
+        },
+        created() {
+            this.getData()
+        },
         methods:{
-
+            getData:function () {
+                this.readTextFile("../source/houseListData.json", (text)=>{
+                    let json=JSON.parse(text);
+                    // this.$set(this,'houseList',json.data.saleList)
+                    this.houseList=json.data.saleList
+                    console.dir(this.houseList)
+                })
+            },
+            readTextFile:function (file, callback) {
+                var rawFile = new XMLHttpRequest()
+                rawFile.overrideMimeType("application/json")
+                rawFile.open("GET", file, true)
+                rawFile.onreadystatechange = function() {
+                    if (rawFile.readyState === 4 && rawFile.status == "200") {
+                        callback(rawFile.responseText)
+                    }
+                }
+                rawFile.send(null)
+            },
         }
     })
 </script>
