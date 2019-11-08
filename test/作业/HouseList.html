@@ -4,22 +4,103 @@
     <meta charset="UTF-8">
     <title>房源列表</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="../js/houseList.js"></script>
     <style>
-
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .rowLeftStyle {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .rowRightStyle {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .screenItem {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            width: 90px;
+        }
+        .screenMore {
+            color: white;
+            background-color: rgb(25,147,235);
+            border: 1px solid black;
+            border-radius: 4px;
+            width: 40px;
+            height: 55%;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px
+        }
     </style>
 </head>
 <body>
 <div id="view" style="background-color: white">
+    <!--筛选-->
+    <div id="screen" class="rowLeftStyle" style="background-color: rgb(47,158,240); height: 35px">
+        <div id="screenLeft" class="rowLeftStyle" style="height: 100%">
+            <div v-for="(item,index) in screenList">
+                <screenleftitem :title="item"></screenleftitem>
+            </div>
+        </div>
+        <div id="screenRight" class="rowRightStyle" style="height: 100%; flex: 1;">
+            <div @click="moreClick()" class="screenMore">
+            更多
+            </div>
+            <div @click="searchClick()" class="screenMore">
+            查询
+            </div>
+        </div>
+    </div>
+    <!--头部-->
+    <div id="header" style="background-color: rgb(244,244,244); height: 35px">
 
+    </div>
     <div id="listView">
-
     </div>
 </div>
 
 <script>
+    var screen_item_cpt = Vue.extend({
+        props: ['title'],
+        template: '<div class="screenItem"> <img src="../image/公司.png" style="width: 15px; height: 15px; margin-left: 5px"><span style="font-size: 13px; margin-left: 5px">{{title}}</span><div style="display: flex; flex-direction: row; align-items: center; justify-content: flex-end; flex: 1;"><img src="../image/展开.png" style="width: 10px; height: 10px; margin-right: 5px"></div></div>'
+    })
+    var screenVue = new Vue({
+        el:"#screen",
+        components:{
+            'screenleftitem': screen_item_cpt
+        },
+        data:{
+            screenList:["全公司", "员工", "区域", "楼盘", "户型", "面积", "总价", "时间"]
+        },
+        methods:{
+            moreClick:function () {
+                alert('更多')
+            },
+            searchClick:function () {
+                alert('查询')
+            },
+        }
+    })
+
     var listVue = new Vue({
         el:"#listView",
+        methods:{
+
+        }
     })
+
 </script>
 </body>
 </html>
