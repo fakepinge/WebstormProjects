@@ -4,24 +4,31 @@
     <meta charset="UTF-8">
     <title>房源列表</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <link rel="stylesheet" href="../css/common.css">
     <style>
         body {
             margin: 0;
             padding: 0;
         }
-        .screenContentDiv {
+        .rowStartStyle {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+        }
+        .rowStartStyle.screenContent {
             background-color: rgb(47,158,240);
             height: 35px;
         }
-        .screenLeftContentDiv {
-            height: 100%;
-        }
-        .rightContentDiv {
+        .rowStartStyle.rightContentStyle {
             flex: 1;
-            height: 100%;
+            justify-content: flex-end;
         }
         .screenItem {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
             height: 100%;
             width: 90px;
             cursor: pointer;
@@ -34,17 +41,27 @@
             width: 40px;
             height: 55%;
             font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-right: 10px;
             cursor: pointer;
         }
 
-        .headerContentDiv {
+        .rowStartStyle.headerContent {
             background-color: rgb(244,244,244);
             height: 35px;
             border-bottom: 1px solid rgb(153,153,153);
             box-shadow: 0px 5px 5px rgba(51, 51, 51, 0.2);
         }
-        .headerCaseItem {
+        .rowCenterStyle {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .rowCenterStyle.switchItem {
             background-color: white;
             border-top: 1px solid rgba(153, 153, 153, 0.8);
             border-left: 1px solid rgba(153, 153, 153, 0.8);
@@ -53,13 +70,14 @@
             border-top-right-radius: 4px;
             height: 25px;
             width: 60px;
+            margin-bottom: -1px;
             font-size: 15px;
             cursor: pointer;
         }
-        .headerCheckItem {
+        .rowCenterStyle.checkItem {
             margin-right: 10px;
+            cursor: pointer;
         }
-
         .headerRowButton {
             margin-right: 20px;
         }
@@ -75,26 +93,38 @@
             height: 17px;
             cursor: pointer;
         }
-
-        .listItemDiv {
+        .columnCenterStyle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .columnStartStyle {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .columnStartStyle.listItemDiv {
+            justify-content: start;
             width: 100%;
             height: 150px;
             background-color: rgb(237,243,251);
         }
-        .listItemContentDiv {
+        .rowStartStyle.listItemContentDiv {
             width: 100%;
             height: 145px;
             background-color: white;
         }
 
-        .listItemHouseImage {
+        .houseImage {
             margin-left: 20px;
             width: 140px;
             height: 115px;
             margin-top: 15px;
             margin-bottom: 15px;
         }
-        .listItembBaseIconImg {
+        .rowCenterStyle.baseIconImg {
             width: 20px;
             height: 15px;
             border: 1px solid rgb(153,153,153);
@@ -106,28 +136,28 @@
 <body>
 <div id="view" style="background-color: white">
     <!--筛选-->
-    <div id="screen" class="rowLeftMiddleStyle screenContentDiv">
-        <div id="screenLeft" class="rowLeftMiddleStyle screenLeftContentDiv">
+    <div id="screen" class="rowStartStyle screenContent">
+        <div id="screenLeft" class="rowStartStyle">
             <screenitemdiv v-for="(item,index) in screenList" :title="item" :type="index"></screenitemdiv>
         </div>
-        <div id="screenRight" class="rowRightMiddleStyle rightContentDiv">
-            <div @click="moreClick()" class="rowCenterStyle screenMore">更多</div>
-            <div @click="searchClick()" class="rowCenterStyle screenMore">查询</div>
+        <div id="screenRight" class="rowStartStyle rightContentStyle">
+            <div @click="moreClick()" class="screenMore">更多</div>
+            <div @click="searchClick()" class="screenMore">查询</div>
         </div>
     </div>
     <!--头部-->
-    <div id="header" class="rowLeftMiddleStyle headerContentDiv">
-        <div class="rowLeftBottomStyle" style="margin-bottom: -10px">
-            <div class="rowCenterStyle headerCaseItem" style="margin-left: 15px">出售</div>
-            <div class="rowCenterStyle headerCaseItem" style="margin-left: 10px">出租</div>
+    <div id="header" class="rowStartStyle headerContent">
+        <div class="rowStartStyle" style="align-items: flex-end;">
+            <div class="rowCenterStyle switchItem" style="margin-left: 15px">出售</div>
+            <div class="rowCenterStyle switchItem" style="margin-left: 10px">出租</div>
         </div>
-        <div class="rowLeftMiddleStyle" style="margin-left: 30px; height: 100%">
+        <div class="rowStartStyle" style="margin-left: 30px">
             <headercheckdiv v-for="(item,index) in checkList" :title="item" :type="index"></headercheckdiv>
         </div>
-        <div class="rowRightMiddleStyle rightContentDiv">
+        <div class="rowStartStyle rightContentStyle">
             <rowtextbutton class="headerRowButton" title="登记" img="../image/登记.png" color="#3396fb"></rowtextbutton>
             <rowtextbutton class="headerRowButton" title="跟进日志" img="../image/登记.png" color="#3396fb"></rowtextbutton>
-            <div class="rowLeftMiddleStyle" style="height: 100%; margin-right: 35px">
+            <div class="rowStartStyle" style="margin-right: 35px">
                 <rowtextbutton title="筛选：" img="../image/登记.png" color="#3396fb"></rowtextbutton>
                 <span style="color: rgb(51,51,51); font-size: 12px">默认</span>
             </div>
@@ -143,16 +173,16 @@
     </div>
     <!--列表-->
     <div id="listView" class="columnCenterStyle">
-        <div class="columnLeftTopStyle listItemDiv" v-for="(house,index) in houseList">
-            <div class="rowLeftMiddleStyle listItemContentDiv">
+        <div class="columnStartStyle listItemDiv" v-for="(house,index) in houseList">
+            <div class="rowStartStyle listItemContentDiv">
                 <list_item_base_div v-if="house" :house="house"></list_item_base_div>
-                <div class="rowLeftMiddleStyle detailInfoDiv" style="width: 22%; height: 100%; background-color: #900cff">
+                <div class="rowStartStyle detailInfoDiv" style="width: 22%; height: 100%; background-color: #900cff">
 
                 </div>
-                <div class="rowLeftMiddleStyle workflowInfoDiv" style="width: 22%; height: 100%; background-color: darkred">
+                <div class="rowStartStyle workflowInfoDiv" style="width: 22%; height: 100%; background-color: darkred">
 
                 </div>
-                <div class="rowLeftMiddleStyle deptInfoDiv" style="width: 22%; height: 100%; background-color: aqua">
+                <div class="rowStartStyle deptInfoDiv" style="width: 22%; height: 100%; background-color: aqua">
 
                 </div>
             </div>
@@ -164,7 +194,7 @@
     var row_text_button = Vue.extend({
         props: ['img', 'title', 'color', 'marginLeft'],
         template:'' +
-            '<div class="rowLeftMiddleStyle" style="height: 100%; cursor: pointer">' +
+            '<div class="rowStartStyle" style="cursor: pointer">' +
             '<img :src="img">' +
             '<span :style="{color:color, marginLeft:\'3px\', fontSize:\'12px\'}">{{title}}</span>' +
             '</div>',
@@ -174,7 +204,7 @@
     var screen_item_cpt = Vue.extend({
         props: ['title', 'type'],
         template: '' +
-            '<div class="rowLeftMiddleStyle screenItem" @click="screenItemClick(type+1, title)">' +
+            '<div class="screenItem" @click="screenItemClick(type+1, title)">' +
                 '<img src="../image/公司.png" style="width: 15px; height: 15px; margin-left: 5px">' +
                 '<span style="font-size: 13px; margin-left: 5px">{{title}}</span>' +
                 '<div style="display: flex; flex-direction: row; align-items: center; justify-content: flex-end; flex: 1;">' +
@@ -193,8 +223,8 @@
     var header_check_cpt = Vue.extend({
         props: ['title', 'type'],
         template: '' +
-            '<div class="rowCenterStyle headerCheckItem" style="height: 100%">' +
-            '<input type="checkbox" style="cursor: pointer;">' +
+            '<div class="rowCenterStyle checkItem">' +
+            '<input type="checkbox">' +
             '<span style="font-size: 14px; margin-left: 3px">{{title}}</span>' +
             '</div>'
     })
@@ -247,30 +277,30 @@
     var list_item_base_div_cmp = Vue.extend({
         props:['house'],
         template: '' +
-            '<div class="rowLeftMiddleStyle" style="height: 100%; flex: 1">' +
-                '<div class="rowLeftMiddleStyle">' +
-                    '<img onerror=\'this.src="../image/global_image_placeholder_load.png"\' class="listItemHouseImage" :src="house.thumbUrl">' +
+            '<div class="rowStartStyle" style="flex: 1">' +
+                '<div class="rowStartStyle">' +
+                    '<img onerror=\'this.src="../image/global_image_placeholder_load.png"\' class="houseImage" :src="house.thumbUrl">' +
                 '</div>' +
-                '<div class="rowLeftMiddleStyle" style="height: 100%; flex: 1; align-items: flex-start">' +
-                    '<div class="columnLeftTopStyle" style="height: 105px;margin-top: 20px; margin-left: 5px;">' +
+                '<div class="rowStartStyle" style="flex: 1; align-items: flex-start">' +
+                    '<div class="columnStartStyle" style="height: 105px;margin-top: 20px; margin-left: 5px; justify-content: flex-start">' +
                         '<span style="color:rgb(51,51,51); font-size: 18px;">{{house.saleSubject}}</span>' +
-                        '<div class="columnLeftBottomStyle" style="width: 100%; flex: 1">' +
+                        '<div class="columnStartStyle" style="justify-content: flex-end; width: 100%; flex: 1">' +
                             '<span style="color:rgb(153,153,153); font-size: 12px; margin-bottom: 5px">{{subSubject(house)}}</span>' +
-                            '<div class="rowLeftMiddleStyle" style="height: 20px; width: 100%">' +
-                                '<div class="rowCenterStyle listItembBaseIconImg">' +
+                            '<div class="rowStartStyle" style="height: 20px; width: 100%">' +
+                                '<div class="rowCenterStyle baseIconImg">' +
                                     '<img src="../image/钥匙.png">' +
                                 '</div>' +
-                                '<div class="rowCenterStyle listItembBaseIconImg">' +
+                                '<div class="rowCenterStyle baseIconImg">' +
                                     '<img src="../image/视频.png">' +
                                 '</div>' +
-                                '<div class="rowCenterStyle listItembBaseIconImg">' +
+                                '<div class="rowCenterStyle baseIconImg">' +
                                     '<img src="../image/VR.png">' +
                                 '</div>' +
                             '</div>' +
                         '</div>' +
                     '</div>' +
                 '</div>' +
-                '<div class="rowCenterStyle" style="height: 100%; width: 100px;">' +
+                '<div class="rowCenterStyle" style="width: 100px;">' +
                     '<score_text_label :qualityScore="house.qualityScore"></score_text_label>' +
                 '</div>' +
             '</div>',
@@ -307,12 +337,14 @@
         methods:{
             getData:function () {
                 this.readTextFile("../source/houseListData.json", (text)=>{
-                    let json=JSON.parse(text)
+                    let json=JSON.parse(text);
+                    // this.$set(this,'houseList',json.data.saleList)
                     this.houseList=json.data.saleList
+                    console.dir(this.houseList)
                 })
             },
             readTextFile:function (file, callback) {
-                let rawFile = new XMLHttpRequest()
+                var rawFile = new XMLHttpRequest()
                 rawFile.overrideMimeType("application/json")
                 rawFile.open("GET", file, true)
                 rawFile.onreadystatechange = function() {
