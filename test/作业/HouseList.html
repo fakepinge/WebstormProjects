@@ -143,13 +143,27 @@
         <div class="columnLeftTopStyle listItemDiv" v-for="(house,index) in houseList">
             <div class="rowLeftMiddleStyle listItemContentDiv">
                 <list_item_base_div v-if="house" :house="house"></list_item_base_div>
-                <div class="rowLeftMiddleStyle detailInfoDiv" style="width: 22%; height: 100%; background-color: #900cff">
+                <div class="rowLeftMiddleStyle detailInfoDiv" style="width: 22%; height: 100%;">
+                    <div class="columnLeftMiddleStyle" style="width: 100%; height: 115px;">
+                        <div class="rowLeftMiddleStyle">
+                            <span style="font-size: 20px; color: rgb(51,51,51)">{{house.buildName}}</span>
+                            <span style="margin-left: 2px; font-size: 14px; color: rgb(153,153,153)">[{{house.sectionName}}]</span>
+                        </div>
+                        <div class="rowLeftMiddleStyle" style="height: 55px;">
+                            <span style="font-size: 16px; color: rgb(153,153,153)">1室1厅1卫 111㎡ 114万 10000元/㎡</span>
+                        </div>
+                        <div class="rowLeftMiddleStyle">
+                            <div class="rowLeftMiddleStyle" style="height: 100%; margin-right: 5px" v-for="(name, index) in iconNameList">
+                                <rowtextbutton :title="name" img="../image/跟进记录.png" color="rgb(78,194,238)"></rowtextbutton>
+                                <div v-if="showVline(index)" style="margin-left: 3px; width: 1px; height: 80%; background-color: rgb(78,194,238)"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rowLeftMiddleStyle workflowInfoDiv" style="width: 22%; height: 100%;">
 
                 </div>
-                <div class="rowLeftMiddleStyle workflowInfoDiv" style="width: 22%; height: 100%; background-color: darkred">
-
-                </div>
-                <div class="rowLeftMiddleStyle deptInfoDiv" style="width: 22%; height: 100%; background-color: aqua">
+                <div class="rowLeftMiddleStyle deptInfoDiv" style="width: 22%; height: 100%;">
 
                 </div>
             </div>
@@ -159,7 +173,7 @@
 
 <script>
     var row_text_button = Vue.extend({
-        props: ['img', 'title', 'color', 'marginLeft'],
+        props: ['img', 'title', 'color'],
         template:'' +
             '<div class="rowLeftMiddleStyle" style="height: 100%; cursor: pointer">' +
             '<img :src="img">' +
@@ -287,6 +301,7 @@
             'list_item_base_div':list_item_base_div_cmp,
         },
         data:{
+            iconNameList:["跟进", "匹配", "上传", "提交钥匙", "收藏"],
             houseList:[
             //     {
             //     thumbUrl:"http://pic.myfun7.com/oss/online/tmp/2019/11/07/d68fe689210f4019a98f8e9e63069d44.png",
@@ -296,7 +311,7 @@
             //     regionName: "双流",
             //     sectionName: "航空港",
             // }
-            ]
+            ],
         },
         created() {
             this.getData()
@@ -319,7 +334,10 @@
                 }
                 rawFile.send(null)
             },
-        }
+            showVline:function (index) {
+                return index < (this.iconNameList.length - 1)
+            }
+        },
     })
 </script>
 </body>
