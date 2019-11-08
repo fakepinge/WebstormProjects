@@ -20,7 +20,7 @@
             background-color: rgb(47,158,240);
             height: 35px;
         }
-        .rowStartStyle.screenRightContent {
+        .rowStartStyle.rightContentStyle {
             flex: 1;
             justify-content: flex-end;
         }
@@ -45,6 +45,48 @@
             justify-content: center;
             margin-right: 10px
         }
+        .rowStartStyle.headerContent {
+            background-color: rgb(244,244,244);
+            height: 35px;
+            border-bottom: 1px solid rgb(153,153,153);
+            box-shadow: 0px 5px 5px rgba(51, 51, 51, 0.2);
+        }
+        .rowCenterStyle {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .rowCenterStyle.switchItem {
+            background-color: white;
+            border-top: 1px solid rgba(153, 153, 153, 0.8);
+            border-left: 1px solid rgba(153, 153, 153, 0.8);
+            border-right: 1px solid rgba(153, 153, 153, 0.8);
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            height: 25px;
+            width: 60px;
+            margin-bottom: -1px;
+            font-size: 15px;
+        }
+        .rowCenterStyle.checkItem {
+            margin-right: 10px;
+        }
+        .headerRowButton {
+            margin-right: 20px;
+        }
+        .headerSwitchDiv {
+            border: 1px solid rgb(153,153,153);
+            border-radius: 2px;
+            width: 27px;
+            height: 20px;
+            margin-right: 1px;
+        }
+        .headerSwitchImg {
+            width: 17px;
+            height: 17px;
+        }
     </style>
 </head>
 <body>
@@ -54,13 +96,36 @@
         <div id="screenLeft" class="rowStartStyle">
             <screenitemdiv v-for="(item,index) in screenList" :title="item" :type="index"></screenitemdiv>
         </div>
-        <div id="screenRight" class="rowStartStyle screenRightContent">
+        <div id="screenRight" class="rowStartStyle rightContentStyle">
             <div @click="moreClick()" class="screenMore">更多</div>
             <div @click="searchClick()" class="screenMore">查询</div>
         </div>
     </div>
     <!--头部-->
-    <div id="header" style="background-color: rgb(244,244,244); height: 35px">
+    <div id="header" class="rowStartStyle headerContent">
+        <div class="rowStartStyle" style="align-items: flex-end;">
+            <div class="rowCenterStyle switchItem" style="margin-left: 15px">出售</div>
+            <div class="rowCenterStyle switchItem" style="margin-left: 10px">出租</div>
+        </div>
+        <div class="rowStartStyle" style="margin-left: 30px">
+            <headercheckdiv v-for="(item,index) in checkList" :title="item" :type="index"></headercheckdiv>
+        </div>
+        <div class="rowStartStyle rightContentStyle">
+            <rowtextbutton class="headerRowButton" title="登记" img="../image/登记.png" color="#3396fb"></rowtextbutton>
+            <rowtextbutton class="headerRowButton" title="跟进日志" img="../image/登记.png" color="#3396fb"></rowtextbutton>
+            <div class="rowStartStyle" style="margin-right: 35px">
+                <rowtextbutton title="筛选：" img="../image/登记.png" color="#3396fb"></rowtextbutton>
+                <span style="color: rgb(51,51,51); font-size: 12px">默认</span>
+            </div>
+            <rowtextbutton class="headerRowButton" title="排序" img="../image/登记.png" color="#3396fb"></rowtextbutton>
+            <span style="color: rgb(153,153,153); font-size: 13px; margin-right: 25px">共{{numCount}}条</span>
+            <div class="rowCenterStyle headerSwitchDiv" style="background-color: rgb(200,200,200)">
+                <img class="headerSwitchImg" src="../image/宽列表.png">
+            </div>
+            <div class="rowCenterStyle headerSwitchDiv" style="margin-right: 7px">
+                <img class="headerSwitchImg" src="../image/窄列表.png" >
+            </div>
+        </div>
     </div>
     <!--列表-->
     <div id="listView">
@@ -68,6 +133,16 @@
 </div>
 
 <script>
+    var row_text_button = Vue.extend({
+        props: ['img', 'title', 'color', 'marginLeft'],
+        template:'' +
+            '<div class="rowStartStyle">' +
+            '<img :src="img">' +
+            '<span :style="{color:color, marginLeft:\'3px\', fontSize:\'12px\'}">{{title}}</span>' +
+            '</div>',
+    })
+    Vue.component('rowtextbutton', row_text_button)
+
     var screen_item_cpt = Vue.extend({
         props: ['title', 'type'],
         template: '' +
@@ -86,6 +161,16 @@
             },
         }
     })
+
+    var header_check_cpt = Vue.extend({
+        props: ['title', 'type'],
+        template: '' +
+            '<div class="rowCenterStyle checkItem">' +
+            '<input type="checkbox">' +
+            '<span style="font-size: 14px; margin-left: 3px">{{title}}</span>' +
+            '</div>'
+    })
+
     var screenVue = new Vue({
         el:"#screen",
         components:{
@@ -100,9 +185,25 @@
             },
             searchClick:function () {
                 alert('查询')
+                headerVue.numCount = 200
             },
         }
     })
+
+    var headerVue = new Vue({
+        el:"#header",
+        components:{
+            'headercheckdiv': header_check_cpt
+        },
+        data:{
+            checkList:["合作房源", "今日抢盘", "我的收藏"],
+            numCount:13,
+        },
+        methods:{
+
+        }
+    })
+
     var listVue = new Vue({
         el:"#listView",
         methods:{
