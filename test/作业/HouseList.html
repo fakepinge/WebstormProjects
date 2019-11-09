@@ -143,26 +143,12 @@
         <div class="columnLeftTopStyle listItemDiv" v-for="(house,index) in houseList">
             <div class="rowLeftMiddleStyle listItemContentDiv">
                 <list_item_base_div v-if="house" :house="house"></list_item_base_div>
-                <div class="rowLeftMiddleStyle detailInfoDiv" style="width: 22%; height: 100%;">
-                    <div class="columnLeftMiddleStyle" style="width: 100%; height: 115px;">
-                        <div class="rowLeftMiddleStyle">
-                            <span style="font-size: 20px; color: rgb(51,51,51)">{{house.buildName}}</span>
-                            <span style="margin-left: 2px; font-size: 14px; color: rgb(153,153,153)">[{{house.sectionName}}]</span>
-                            <img src="../image/地图.png" style="margin-left: 5px">
-                        </div>
-                        <div class="rowLeftMiddleStyle" style="height: 55px;">
-                            <span style="font-size: 16px; color: rgb(153,153,153)">{{house.saleRoom}}室{{house.saleHall}}厅{{house.saleWei}}卫 {{house.saleArea}}㎡ {{house.saleTotalPrice}}万 {{house.saleUnitPrice}}元/㎡</span>
-                        </div>
-                        <div class="rowLeftMiddleStyle">
-                            <div class="rowLeftMiddleStyle" style="height: 100%; margin-right: 5px" v-for="(name, index) in iconNameList">
-                                <rowtextbutton :title="name" img="../image/跟进记录.png" color="rgb(78,194,238)"></rowtextbutton>
-                                <div v-if="showVline(index)" style="margin-left: 3px; width: 1px; height: 80%; background-color: #4EC2EE"></div>
-                            </div>
-                        </div>
+                <list_item_detail_div v-if="house" :house="house"></list_item_detail_div>
+                <div class="rowCenterStyle workflowInfoDiv" style="width: 22%; height: 100%;">
+                    <div class="rowLeftMiddleStyle" style="height:60%;" v-for="(item,index) in workflowList">
+                        <workflow_item_div style="height:100%;" :img="item.img" :title="item.title" :count="item.count"></workflow_item_div>
+                        <div v-if="showWorkflow(index)" style="margin-bottom: 47px; height: 1px; width: 20px; background-color: rgb(210,210,210)"></div>
                     </div>
-                </div>
-                <div class="rowLeftMiddleStyle workflowInfoDiv" style="width: 22%; height: 100%;">
-
                 </div>
                 <div class="rowLeftMiddleStyle deptInfoDiv" style="width: 22%; height: 100%;">
 
@@ -173,6 +159,7 @@
 </div>
 
 <script>
+    /*通用按钮*/
     var row_text_button = Vue.extend({
         props: ['img', 'title', 'color'],
         template:'' +
@@ -183,6 +170,7 @@
     })
     Vue.component('rowtextbutton', row_text_button)
 
+    /*筛选组件*/
     var screen_item_cpt = Vue.extend({
         props: ['title', 'type'],
         template: '' +
@@ -202,6 +190,7 @@
         }
     })
 
+    /*筛选复选组件*/
     var header_check_cpt = Vue.extend({
         props: ['title', 'type'],
         template: '' +
@@ -244,6 +233,8 @@
         }
     })
 
+
+    /*质量分组件*/
     var score_text_label_cmp = Vue.extend({
         props: ['qualityScore'],
         template:'' +
@@ -256,6 +247,7 @@
             '</div>',
     })
 
+    /*列表基础信息组件*/
     var list_item_base_div_cmp = Vue.extend({
         props:['house'],
         template: '' +
@@ -296,13 +288,91 @@
         },
     })
 
+    /*列表详细信息组件*/
+    var list_item_detail_div_cmp = Vue.extend({
+        props:['house'],
+        template:'' +
+            '<div class="rowLeftMiddleStyle detailInfoDiv" style="width: 22%; height: 100%;">' +
+                '<div class="columnLeftMiddleStyle" style="width: 100%; height: 115px;">' +
+                    '<div class="rowLeftMiddleStyle">' +
+                        '<span style="font-size: 20px; color: rgb(51,51,51)">{{house.buildName}}</span>' +
+                        '<span style="margin-left: 2px; font-size: 14px; color: rgb(153,153,153)">[{{house.sectionName}}]</span>' +
+                        '<img src="../image/地图.png" style="margin-left: 5px">' +
+                    '</div>' +
+                    '<div class="rowLeftMiddleStyle" style="height: 55px;">' +
+                        '<span style="font-size: 16px; color: rgb(153,153,153)">{{house.saleRoom}}室{{house.saleHall}}厅{{house.saleWei}}卫 {{house.saleArea}}㎡ {{house.saleTotalPrice}}万 {{house.saleUnitPrice}}元/㎡</span>' +
+                    '</div>' +
+                    '<div class="rowLeftMiddleStyle">' +
+                        '<div class="rowLeftMiddleStyle" style="height: 100%; margin-right: 5px" v-for="(name, index) in iconNameList">' +
+                            '<rowtextbutton :title="name" img="../image/跟进记录.png" color="rgb(78,194,238)"></rowtextbutton>' +
+                            '<div v-if="showVline(index)" style="margin-left: 3px; width: 1px; height: 80%; background-color: #4EC2EE"></div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>',
+        data(){
+            return {
+                iconNameList:["跟进", "匹配", "上传", "提交钥匙", "收藏"],
+            }
+        },
+        methods:{
+            showVline:function (index) {
+                return index < (this.iconNameList.length - 1)
+            },
+        },
+    })
+
+    /*列表工作流item组件*/
+    var workflow_item_div_cmp = Vue.extend({
+        props:['img', 'title', 'count'],
+        template:'' +
+            '<div class="columnCenterTopStyle" style="width: 35px">' +
+                '<img style="margin-top: 5px" :src="img">' +
+                '<span style="margin-top: 5px; color: rgb(153,153,153); font-size: 13px">{{title}}</span>' +
+                '<span v-if="showCount(count)" style="margin-top: 6px; color: rgb(251,125,89); font-size: 14px">{{count}}次</span>' +
+            '</div>',
+        methods:{
+            showCount:(count)=> {
+                return count > 0
+            }
+        },
+    })
+
     var listVue = new Vue({
         el:"#listView",
         components:{
             'list_item_base_div':list_item_base_div_cmp,
+            'list_item_detail_div':list_item_detail_div_cmp,
+            'workflow_item_div':workflow_item_div_cmp,
         },
         data:{
-            iconNameList:["跟进", "匹配", "上传", "提交钥匙", "收藏"],
+            workflowList:[
+                {
+                   title:"房勘",
+                   count:"1",
+                   img:"../image/带看.png",
+                },
+                {
+                    title:"空看",
+                    count:"0",
+                    img:"../image/带看-灰.png",
+                },
+                {
+                    title:"带看",
+                    count:"3",
+                    img:"../image/带看.png",
+                },
+                {
+                    title:"议价",
+                    count:"0",
+                    img:"../image/带看-灰.png",
+                },
+                {
+                    title:"预订",
+                    count:"0",
+                    img:"../image/带看-灰.png",
+                },
+            ],
             houseList:[
             //     {
             //     thumbUrl:"http://pic.myfun7.com/oss/online/tmp/2019/11/07/d68fe689210f4019a98f8e9e63069d44.png",
@@ -335,9 +405,10 @@
                 }
                 rawFile.send(null)
             },
-            showVline:function (index) {
-                return index < (this.iconNameList.length - 1)
-            }
+            showWorkflow:function (index) {
+                let arr = this.workflowList
+                return index < (arr.length - 1)
+            },
         },
     })
 </script>
