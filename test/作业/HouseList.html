@@ -151,7 +151,7 @@
                     </div>
                 </div>
                 <div class="columnLeftTopStyle deptInfoDiv" style="width: 22%; height: 100%;">
-                    <rowtextbutton style="margin-top: 18px; height: 50px" img="../image/公.png" title="天兰芳" color="rgb(153,153,153)" font="16px"></rowtextbutton>
+                    <rowtextbutton style="margin-top: 18px; height: 50px" img="../image/公.png" :title="house.deptCname" color="rgb(153,153,153)" font="16px" margin="10px"></rowtextbutton>
                     <div class="rowLeftMiddleStyle" style="margin-top: 15px; height: 50px">
                         <rowtextbutton style="margin-right: 15px" img="../image/人员.png" title="小区专家" color="rgb(153,153,153)" font="14px"></rowtextbutton>
                         <rowtextbutton style="margin-right: 15px" img="../image/真.png" title="真房源" color="rgb(153,153,153)" font="14px"></rowtextbutton>
@@ -166,11 +166,11 @@
 <script>
     /*通用按钮*/
     var row_text_button = Vue.extend({
-        props: ['img', 'title', 'color', 'font'],
+        props: ['img', 'title', 'color', 'font', 'margin'],
         template:'' +
             '<div class="rowLeftMiddleStyle" style="height: 100%; cursor: pointer">' +
             '<img :src="img">' +
-            '<span :style="{color:color, marginLeft:\'3px\', fontSize:getFont(font)}">{{title}}</span>' +
+            '<span :style="{color:color, marginLeft:getMargin(margin), fontSize:getFont(font)}">{{title}}</span>' +
             '</div>',
         methods:{
             getFont:function (size) {
@@ -178,6 +178,12 @@
                     return '12px'
                 }
                 return size
+            },
+            getMargin:function (margin) {
+                if (margin == null) {
+                    return '3px'
+                }
+                return margin
             }
         }
     })
@@ -387,14 +393,21 @@
                 },
             ],
             houseList:[
-            //     {
-            //     thumbUrl:"http://pic.myfun7.com/oss/online/tmp/2019/11/07/d68fe689210f4019a98f8e9e63069d44.png",
-            //     qualityScore:40,
-            //     saleSubject:"房子不错，采光好，通风好，对中庭",
-            //     buildName:"芳园居",
-            //     regionName: "双流",
-            //     sectionName: "航空港",
-            // }
+                // {
+                //     thumbUrl: "http://pic.myfun7.com/oss/online/tmp/2019/11/07/d68fe689210f4019a98f8e9e63069d44.png",
+                //     qualityScore: 40,
+                //     saleSubject: "房子不错，采光好，通风好，对中庭",
+                //     buildName: "芳园居",
+                //     regionName: "双流",
+                //     sectionName: "航空港",
+                //     deptId: 904209,
+                // }
+            ],
+            deptList:[
+                // {
+                //     deptCname:"",
+                //     deptId:"",
+                // }
             ],
         },
         created() {
@@ -404,6 +417,17 @@
             getData:function () {
                 this.readTextFile("../source/houseListData.json", (text)=>{
                     let json=JSON.parse(text)
+                    let deptList = json.data.deptList
+                    let map = new Map()
+                    for (let i = 0; i < deptList.length; i++) {
+                        let dept = deptList[i]
+                        map.set(dept.deptId, dept.deptCname)
+                    }
+                    let saleList = json.data.saleList
+                    for (let i = 0; i < saleList.length; i++) {
+                        let house = saleList[i]
+                        house.deptCname = map.get(house.deptId)
+                    }
                     this.houseList=json.data.saleList
                 })
             },
