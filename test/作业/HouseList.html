@@ -150,8 +150,13 @@
                         <div v-if="showWorkflow(index)" style="margin-bottom: 47px; height: 1px; width: 20px; background-color: rgb(210,210,210)"></div>
                     </div>
                 </div>
-                <div class="rowLeftMiddleStyle deptInfoDiv" style="width: 22%; height: 100%;">
-
+                <div class="columnLeftTopStyle deptInfoDiv" style="width: 22%; height: 100%;">
+                    <rowtextbutton style="margin-top: 18px; height: 50px" img="../image/公.png" title="天兰芳" color="rgb(153,153,153)" font="16px"></rowtextbutton>
+                    <div class="rowLeftMiddleStyle" style="margin-top: 15px; height: 50px">
+                        <rowtextbutton style="margin-right: 15px" img="../image/人员.png" title="小区专家" color="rgb(153,153,153)" font="14px"></rowtextbutton>
+                        <rowtextbutton style="margin-right: 15px" img="../image/真.png" title="真房源" color="rgb(153,153,153)" font="14px"></rowtextbutton>
+                        <rowtextbutton style="margin-right: 15px" img="../image/合作.png" title="分享合作" color="rgb(153,153,153)" font="14px"></rowtextbutton>
+                    </div>
                 </div>
             </div>
         </div>
@@ -161,12 +166,20 @@
 <script>
     /*通用按钮*/
     var row_text_button = Vue.extend({
-        props: ['img', 'title', 'color'],
+        props: ['img', 'title', 'color', 'font'],
         template:'' +
             '<div class="rowLeftMiddleStyle" style="height: 100%; cursor: pointer">' +
             '<img :src="img">' +
-            '<span :style="{color:color, marginLeft:\'3px\', fontSize:\'12px\'}">{{title}}</span>' +
+            '<span :style="{color:color, marginLeft:\'3px\', fontSize:getFont(font)}">{{title}}</span>' +
             '</div>',
+        methods:{
+            getFont:function (size) {
+                if (size == null) {
+                    return '12px'
+                }
+                return size
+            }
+        }
     })
     Vue.component('rowtextbutton', row_text_button)
 
