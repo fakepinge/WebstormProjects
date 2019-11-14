@@ -10,16 +10,45 @@
                 <div @click="searchClick()" class="rowCenterStyle screenMore">查询</div>
             </div>
         </div>
+        <!--头部-->
+        <div id="header" class="rowLeftMiddleStyle headerContentDiv">
+            <div class="rowLeftBottomStyle" style="margin-bottom: -10px">
+                <div class="rowCenterStyle headerCaseItem" style="margin-left: 15px">出售</div>
+                <div class="rowCenterStyle headerCaseItem" style="margin-left: 10px">出租</div>
+            </div>
+            <div class="rowLeftMiddleStyle" style="margin-left: 30px; height: 100%">
+                <header-check v-for="(item) in checkList" :title="item"></header-check>
+            </div>
+            <div class="rowRightMiddleStyle rightContentDiv">
+                <row-button class="headerRowButton" title="登记" img="../assets/image/登记.png" color="#3396fb"></row-button>
+                <row-button class="headerRowButton" title="跟进日志" img="../assets/image/登记.png" color="#3396fb"></row-button>
+                <div class="rowLeftMiddleStyle" style="height: 100%; margin-right: 35px">
+                    <row-button title="筛选：" img="../image/登记.png" color="#3396fb"></row-button>
+                    <span style="color: rgb(51,51,51); font-size: 12px">默认</span>
+                </div>
+                <row-button class="headerRowButton" title="排序" img="../assets/image/登记.png" color="#3396fb"></row-button>
+                <span style="color: rgb(153,153,153); font-size: 13px; margin-right: 25px">共{{numCount}}条</span>
+                <div class="rowCenterStyle headerSwitchDiv" style="background-color: rgb(200,200,200)">
+                    <img class="headerSwitchImg" src="../assets/image/宽列表.png">
+                </div>
+                <div class="rowCenterStyle headerSwitchDiv" style="margin-right: 7px">
+                    <img class="headerSwitchImg" src="../assets/image/窄列表.png" >
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-    import ScreenItem from "../components/ScreenItem.vue"
-
+    import ScreenItem from '../components/ScreenItem.vue'
+    import HeaderCheck  from '../components/HeaderCheck.vue'
+    import RowButton  from '../components/RowButton.vue'
     export default {
         name: "House",
         components: {
-            ScreenItem
+            ScreenItem,
+            HeaderCheck,
+            RowButton,
         },
         data() {
             return {

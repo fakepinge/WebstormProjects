@@ -21,26 +21,6 @@
 
             },
         },
-        // props: {
-        //     img: {
-        //         type: String,
-        //     },
-        //     title: {
-        //         type: String,
-        //         default: 'text',
-        //     },
-        //     color: {
-        //         type: String,
-        //     },
-        //     font: {
-        //         type: String,
-        //         default: '12px',
-        //     },
-        //     margin: {
-        //         type: String,
-        //         default: '3px',
-        //     },
-        // },
         methods: {
             screenItemClick(type, title) {
                 alert("点击了第"+ type.toString() + "项 => " + title)
