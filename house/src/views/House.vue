@@ -20,13 +20,13 @@
                 <header-check v-for="(item) in checkList" :title="item"></header-check>
             </div>
             <div class="rowRightMiddleStyle rightContentDiv">
-                <row-button class="headerRowButton" title="登记" img="../assets/image/登记.png" color="#3396fb"></row-button>
-                <row-button class="headerRowButton" title="跟进日志" img="../assets/image/登记.png" color="#3396fb"></row-button>
+                <row-button class="headerRowButton" title="登记" :img="require('@/assets/image/登记.png')" color="#3396fb"></row-button>
+                <row-button class="headerRowButton" title="跟进日志" :img="require('@/assets/image/登记.png')" color="#3396fb"></row-button>
                 <div class="rowLeftMiddleStyle" style="height: 100%; margin-right: 35px">
-                    <row-button title="筛选：" img="../image/登记.png" color="#3396fb"></row-button>
+                    <row-button title="筛选：" :img="require('@/assets/image/登记.png')" color="#3396fb"></row-button>
                     <span style="color: rgb(51,51,51); font-size: 12px">默认</span>
                 </div>
-                <row-button class="headerRowButton" title="排序" img="../assets/image/登记.png" color="#3396fb"></row-button>
+                <row-button class="headerRowButton" title="排序" :img="require('@/assets/image/登记.png')" color="#3396fb"></row-button>
                 <span style="color: rgb(153,153,153); font-size: 13px; margin-right: 25px">共{{numCount}}条</span>
                 <div class="rowCenterStyle headerSwitchDiv" style="background-color: rgb(200,200,200)">
                     <img class="headerSwitchImg" src="../assets/image/宽列表.png">
@@ -40,6 +40,7 @@
 </template>
 
 <script>
+    import dataJson from "../assets/source/houseListData.json"
     import ScreenItem from '../components/ScreenItem.vue'
     import HeaderCheck  from '../components/HeaderCheck.vue'
     import RowButton  from '../components/RowButton.vue'
@@ -85,32 +86,19 @@
         },
         methods: {
             getData: function () {
-                this.readTextFile("../assets/source/houseListData.json", (text) => {
-                    let json = JSON.parse(text)
-                    let deptList = json.data.deptList
-                    let map = new Map()
-                    for (let i = 0; i < deptList.length; i++) {
-                        let dept = deptList[i]
-                        map.set(dept.deptId, dept.deptCname)
-                    }
-                    let saleList = json.data.saleList
-                    for (let i = 0; i < saleList.length; i++) {
-                        let house = saleList[i]
-                        house.deptCname = map.get(house.deptId)
-                    }
-                    this.houseList = json.data.saleList
-                })
-            },
-            readTextFile: function (file, callback) {
-                let rawFile = new XMLHttpRequest()
-                rawFile.overrideMimeType("application/json")
-                rawFile.open("GET", file, true)
-                rawFile.onreadystatechange = function () {
-                    if (rawFile.readyState === 4 && rawFile.status == "200") {
-                        callback(rawFile.responseText)
-                    }
+                let json = dataJson
+                let deptList = json.data.deptList
+                let map = new Map()
+                for (let i = 0; i < deptList.length; i++) {
+                    let dept = deptList[i]
+                    map.set(dept.deptId, dept.deptCname)
                 }
-                rawFile.send(null)
+                let saleList = json.data.saleList
+                for (let i = 0; i < saleList.length; i++) {
+                    let house = saleList[i]
+                    house.deptCname = map.get(house.deptId)
+                }
+                this.houseList = json.data.saleList
             },
             showWorkflow: function (index) {
                 let arr = this.workflowList
@@ -121,7 +109,7 @@
             },
             searchClick: function () {
                 alert('查询')
-                headerVue.numCount = 200
+                this.numCount = 200
             },
         },
     }
