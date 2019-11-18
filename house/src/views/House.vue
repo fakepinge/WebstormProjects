@@ -38,7 +38,7 @@
         </div>
         <!--列表-->
         <div id="listView" class="columnCenterStyle">
-            <div class="columnLeftTopStyle listItemDiv" v-for="(house) in houseList">
+            <div class="columnLeftTopStyle listItemDiv" v-for="(house) in houseList" @click="houseDetailClick(house)">
                 <div class="rowLeftMiddleStyle listItemContentDiv">
                     <house-list-item-base v-if="house" :house="house"></house-list-item-base>
                     <house-detail-item-detail v-if="house" :house="house"></house-detail-item-detail>
@@ -141,6 +141,20 @@
                 alert('查询')
                 this.numCount = 200
             },
+            houseDetailClick(house) {
+                // this.$router.push({
+                //     path: '/house_detail',
+                //     query:{
+                //         house:JSON.stringify(house),
+                //     }
+                // })
+                this.$router.push({
+                    name: 'house_detail',
+                    params: {
+                        house: JSON.stringify(house),
+                    }
+                })
+            }
         },
     }
 
