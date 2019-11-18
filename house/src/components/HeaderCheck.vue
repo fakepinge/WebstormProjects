@@ -17,5 +17,7 @@
 </script>
 
 <style scoped>
-
+    .headerCheckItem {
+        margin-right: 10px;
+    }
 </style>

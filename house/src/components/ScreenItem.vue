@@ -30,5 +30,9 @@
 </script>
 
 <style scoped>
-
+    .screenItem {
+        height: 100%;
+        width: 90px;
+        cursor: pointer;
+    }
 </style>

@@ -36,6 +36,29 @@
                 </div>
             </div>
         </div>
+        <!--列表-->
+        <div id="listView" class="columnCenterStyle">
+            <div class="columnLeftTopStyle listItemDiv" v-for="(house) in houseList">
+                <div class="rowLeftMiddleStyle listItemContentDiv">
+                    <house-list-item-base v-if="house" :house="house"></house-list-item-base>
+                    <house-detail-item-detail v-if="house" :house="house"></house-detail-item-detail>
+                    <div class="rowCenterStyle workflowInfoDiv" style="width: 22%; height: 100%;">
+                        <div class="rowLeftMiddleStyle" style="height:60%;" v-for="(item,index) in workflowList">
+                            <workflow-item style="height:100%;" :img="item.img" :title="item.title" :count="item.count"></workflow-item>
+                            <div v-if="showWorkflow(index)" style="margin-bottom: 47px; height: 1px; width: 20px; background-color: rgb(210,210,210)"></div>
+                        </div>
+                    </div>
+                    <div class="columnLeftTopStyle deptInfoDiv" style="width: 22%; height: 100%;">
+                        <row-button style="margin-top: 18px; height: 50px" :img="require('@/assets/image/公.png')" :title="house.deptCname" color="rgb(153,153,153)" font="16px" margin="10px"></row-button>
+                        <div class="rowLeftMiddleStyle" style="margin-top: 15px; height: 50px">
+                            <row-button style="margin-right: 15px" :img="require('@/assets/image/人员.png')" title="小区专家" color="rgb(153,153,153)" font="14px"></row-button>
+                            <row-button style="margin-right: 15px" :img="require('@/assets/image/真.png')" title="真房源" color="rgb(153,153,153)" font="14px"></row-button>
+                            <row-button style="margin-right: 15px" :img="require('@/assets/image/合作.png')" title="分享合作" color="rgb(153,153,153)" font="14px"></row-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -44,12 +67,19 @@
     import ScreenItem from '../components/ScreenItem.vue'
     import HeaderCheck  from '../components/HeaderCheck.vue'
     import RowButton  from '../components/RowButton.vue'
+    import HouseListItemBase  from '../components/HouseListItemBase.vue'
+    import HouseDetailItemDetail  from '../components/HouseDetailItemDetail.vue'
+    import WorkflowItem  from '../components/WorkflowItem.vue'
+
     export default {
         name: "House",
         components: {
             ScreenItem,
             HeaderCheck,
             RowButton,
+            HouseListItemBase,
+            HouseDetailItemDetail,
+            WorkflowItem,
         },
         data() {
             return {
@@ -59,23 +89,23 @@
                 workflowList: [{
                     title: "房勘",
                     count: "1",
-                    img: "../assets/image/带看.png",
+                    img: require('@/assets/image/带看.png'),
                 }, {
                     title: "空看",
                     count: "0",
-                    img: "../assets/image/带看-灰.png",
+                    img: require('@/assets/image/带看-灰.png'),
                 }, {
                     title: "带看",
                     count: "3",
-                    img: "../assets/image/带看.png",
+                    img: require('@/assets/image/带看.png'),
                 }, {
                     title: "议价",
                     count: "0",
-                    img: "../assets/image/带看-灰.png",
+                    img: require('@/assets/image/带看-灰.png'),
                 }, {
                     title: "预订",
                     count: "0",
-                    img: "../assets/image/带看-灰.png",
+                    img: require('@/assets/image/带看-灰.png'),
                 },],
                 houseList: [],
                 deptList: [],
@@ -127,12 +157,6 @@
         height: 100%;
     }
 
-    .screenItem {
-        height: 100%;
-        width: 90px;
-        cursor: pointer;
-    }
-
     .screenMore {
         color: white;
         background-color: rgb(25, 147, 235);
@@ -165,10 +189,6 @@
         cursor: pointer;
     }
 
-    .headerCheckItem {
-        margin-right: 10px;
-    }
-
     .headerRowButton {
         margin-right: 20px;
     }
@@ -197,22 +217,6 @@
         width: 100%;
         height: 145px;
         background-color: white;
-    }
-
-    .listItemHouseImage {
-        margin-left: 20px;
-        width: 140px;
-        height: 115px;
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-
-    .listItembBaseIconImg {
-        width: 20px;
-        height: 15px;
-        border: 1px solid rgb(153, 153, 153);
-        border-radius: 2px;
-        margin-right: 5px;
     }
 
 </style>
